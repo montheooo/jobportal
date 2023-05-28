@@ -13,6 +13,8 @@ import { LoginComponent } from './components/login/login.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { JobcardComponent } from './components/jobcard/jobcard.component';
 import { HighlightJobComponent } from './components/highlight-job/highlight-job.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,9 @@ import { HighlightJobComponent } from './components/highlight-job/highlight-job.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    NgbModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

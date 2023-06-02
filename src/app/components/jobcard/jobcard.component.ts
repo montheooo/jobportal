@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { JobPost } from 'src/app/Models/job-post';
 
 @Component({
   selector: 'app-jobcard',
@@ -7,4 +8,6 @@ import { Component } from '@angular/core';
 })
 export class JobcardComponent {
 
+  @Input()
+  cardData! : JobPost ;
 }

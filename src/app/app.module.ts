@@ -15,6 +15,9 @@ import { JobcardComponent } from './components/jobcard/jobcard.component';
 import { HighlightJobComponent } from './components/highlight-job/highlight-job.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { FormsModule } from '@angular/forms';
+import { ContactDetailComponent } from './components/contact-detail/contact-detail.component';
+import { ContactFormComponent } from './components/contact-form/contact-form.component';
+import { SocialMediaComponent } from './components/social-media/social-media.component';
 
 @NgModule({
   declarations: [
@@ -28,7 +31,10 @@ import { FormsModule } from '@angular/forms';
     LoginComponent,
     FilterComponent,
     JobcardComponent,
-    HighlightJobComponent
+    HighlightJobComponent,
+    ContactDetailComponent,
+    ContactFormComponent,
+    SocialMediaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,1 +1,8 @@
-<p>jobcard works!</p>
+<div class="card border-dark mb-3" style="max-width: 30rem;">
+  <div class="card-header">{{cardData.jobTitle}}</div><span class="badge rounded-pill text-bg-info">{{cardData.jobTitle}}</span>
+  <div class="card-body text-dark">
+    <h5 class="card-title">{{cardData.company}}</h5><span>{{cardData.location}}</span>
+    <p class="card-text">{{cardData.jobDescription}}</p>
+    <p class="card-text"><small class="text-muted">{{cardData.jobPostDate}}</small></p>
+  </div>
+</div>

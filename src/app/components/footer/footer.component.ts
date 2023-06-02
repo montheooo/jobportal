@@ -1,4 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input} from '@angular/core';
+import { Contact } from 'src/app/Models/Contact';
+
 
 @Component({
   selector: 'app-footer',
@@ -7,4 +9,6 @@ import { Component } from '@angular/core';
 })
 export class FooterComponent {
 
+  @Input()
+  footer!: Contact;
 }

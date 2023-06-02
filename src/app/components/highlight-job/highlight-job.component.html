@@ -1,1 +1,8 @@
-<p>highlight-job works!</p>
+
+<div class="container">
+  <div class="row">
+      <div class="col-md-6 col-lg-4 col-xxl-3" *ngFor="let value of datas">
+        <app-jobcard  [cardData]="value"></app-jobcard>
+      </div>
+  </div>
+</div>

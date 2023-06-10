@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { JobPost } from 'src/app/Models/job-post';
+import { PostJobFirebaseService } from 'src/app/services/post-job-firebase.service';
 
 @Component({
   selector: 'app-reactive-form',
@@ -15,7 +16,7 @@ export class ReactiveFormComponent {
   submitted = false;
   job!:JobPost;
 
-  constructor(private formBuilder: FormBuilder,  private router: Router ){
+  constructor(private formBuilder: FormBuilder,  private router: Router, private jobservice:PostJobFirebaseService ){
   }
 
   ngOnInit() {
@@ -45,11 +46,16 @@ export class ReactiveFormComponent {
       return;
     }
 
+   this.jobservice.postJob(this.jobformGroup.value).subscribe(
+    (data) => {
+      console.log(this.jobformGroup);
+      this.router.navigate(['/home']);
+    }
+   )
 
 
-    console.log(this.jobformGroup);
 
-    //this.router.navigate(['/home']);
+
   }
 
 

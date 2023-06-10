@@ -20,6 +20,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form.com
 import { SocialMediaComponent } from './components/social-media/social-media.component';
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { HomeComponent } from './components/home/home.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HomeComponent } from './components/home/home.component';
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

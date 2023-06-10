@@ -1,0 +1,77 @@
+<div class="container">
+  <h3 class="text-center">Add job</h3>
+  <form class="gy-2 gx-3 align-items-center" [formGroup]="jobformGroup" (ngSubmit)="onSubmit()">
+    <div class="col-auto form-group ">
+      <label for="name">Job Title</label>
+      <input type="text" class="form-control" id="jobTitle"
+             placeholder="Enter the jobTitle" formControlName="jobTitle" [ngClass]="{ 'is-invalid': submitted && f['jobTitle'].errors }"/>
+      <div *ngIf="submitted && f['jobTitle'].errors" class="invalid-feedback">
+        <div *ngIf="f['jobTitle'].errors['required']">Please enter the job title</div>
+      </div>
+    </div>
+
+    <div class="col-auto form-group ">
+      <label for="company">Company</label>
+      <input type="text" class="form-control" id="company"
+             placeholder="Enter the company" formControlName="company" [ngClass]="{ 'is-invalid': submitted && f['company'].errors }"/>
+      <div *ngIf="submitted && f['company'].errors" class="invalid-feedback">
+        <div *ngIf="f['company'].errors['required']">Please enter the company name</div>
+      </div>
+    </div>
+
+    <div class="col-auto form-group">
+      <label for="jobDescription">Job description</label>
+      <textarea rows="5" cols="6"  class="form-control" id="jobDescription"
+             placeholder="Enter the job Description" formControlName="jobDescription" [ngClass]="{ 'is-invalid': submitted && f['jobDescription'].errors }"></textarea>
+      <div *ngIf="submitted && f['jobDescription'].errors" class="invalid-feedback">
+        <div *ngIf="f['jobDescription'].errors['required']">Please enter the job description</div>
+      </div>
+    </div>
+
+
+    <div class="col-auto form-group">
+      <label for="location">Location</label>
+      <input type="text" class="form-control" id="location"
+             placeholder="Enter location" formControlName="location" [ngClass]="{ 'is-invalid': submitted && f['location'].errors }"/>
+      <div *ngIf="submitted && f['location'].errors" class="invalid-feedback">
+        <div *ngIf="f['location'].errors['required']">Please enter location</div>
+      </div>
+    </div>
+
+    <div class="col-auto form-group">
+      <label for="language">Language</label>
+      <input type="text" class="form-control" id="language"
+             placeholder="enter the language" formControlName="language" [ngClass]="{ 'is-invalid': submitted && f['language'].errors }"/>
+      <div *ngIf="submitted && f['language'].errors" class="invalid-feedback">
+        <div *ngIf="f['language'].errors['required']">Please enter language</div>
+
+      </div>
+    </div>
+
+    <div class="col-auto form-group">
+      <label for="salary">Salary</label>
+      <input type="number" class="form-control" id="salary"
+             placeholder="Enter the salary" formControlName="salary" [ngClass]="{ 'is-invalid': submitted && f['salary'].errors }"/>
+      <div *ngIf="submitted && f['salary'].errors" class="invalid-feedback">
+        <div *ngIf="f['salary'].errors['required']">Please enter the salary</div>
+      </div>
+    </div>
+
+    <div class="col-auto form-group">
+      <label for="jobType">Job Type</label>
+      <select formControlName="jobType"  id="jobType" class="form-control-lg form-bg-inverse">
+        <option  value="On site">On site</option>
+        <option  value="On site">Remote</option>
+        <option  value="On site">Hybrid</option>
+
+      </select>
+    </div>
+    <div *ngIf="submitted && f['jobType'].errors" class="invalid-feedback">
+      <div *ngIf="f['jobType'].errors['jobType']">Please select the job type</div>
+    </div>
+
+
+
+    <button class="btn btn-primary" type="submit">Submit Form</button>
+  </form>
+</div>

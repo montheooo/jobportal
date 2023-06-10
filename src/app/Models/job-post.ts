@@ -1,10 +1,10 @@
 export interface JobPost {
 
-  jobPostDate:string,
+  jobPostDate?:string,
   jobTitle: string,
   jobDescription: string,
   location: string,
-  rating:number
+  rating?:number
   salary:number,
   language:Language,
   company:string,

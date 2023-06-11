@@ -10,4 +10,5 @@ export class JobcardComponent {
 
   @Input()
   cardData! : JobPost ;
+  sliceValue: number = 100 ;
 }

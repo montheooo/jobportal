@@ -25,7 +25,7 @@ export class HighlightJobComponent implements OnInit, OnDestroy {
         data => {
           const response = []
           for (let key in data) {
-            console.log(key)
+
             const responseItem = {
               id: key,
               ...data[key]
@@ -33,6 +33,7 @@ export class HighlightJobComponent implements OnInit, OnDestroy {
             response.push(responseItem)
             this.jobs = response
           }
+          console.log(response);
         }
       )
     }

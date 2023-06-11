@@ -21,6 +21,7 @@ import { SocialMediaComponent } from './components/social-media/social-media.com
 import { ReactiveFormComponent } from './components/reactive-form/reactive-form.component';
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
+import { JobDetailsComponent } from './components/job-details/job-details.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HttpClientModule } from '@angular/common/http';
     ContactFormComponent,
     SocialMediaComponent,
     ReactiveFormComponent,
-    HomeComponent
+    HomeComponent,
+    JobDetailsComponent
   ],
   imports: [
     BrowserModule,

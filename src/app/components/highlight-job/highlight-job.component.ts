@@ -1,74 +1,45 @@
-import { Component } from '@angular/core';
-import { Observable, from } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription, from } from 'rxjs';
 import { JobPost, JobType, Language } from 'src/app/Models/job-post';
+import { PostJobFirebaseService } from 'src/app/services/post-job-firebase.service';
 
 @Component({
   selector: 'app-highlight-job',
   templateUrl: './highlight-job.component.html',
   styleUrls: ['./highlight-job.component.css']
 })
-export class HighlightJobComponent {
+export class HighlightJobComponent implements OnInit, OnDestroy {
 
-  datas: JobPost[] ;
+  jobs: any;
+  currentJob!: JobPost;
+  sub!: Subscription;
 
   /**
    *
    */
-  constructor() {
-
-    this.datas = [
-
-      {
-        jobPostDate: "2020-02-01",
-        jobTitle: "Full stack developer",
-        jobDescription: "concevoir developer tester integrer deployer",
-        location:"Ottawa ON",
-        rating:4.5,
-        salary:50.000,
-        language: Language.french,
-        company: "Google",
-        jobType: JobType.hybrid
-      },
-
-      {
-        jobPostDate: "2020-02-01",
-        jobTitle: "Full stack developer",
-        jobDescription: "concevoir developer tester integrer deployer",
-        location:"Ottawa ON",
-        rating:4.5,
-        salary:50.000,
-        language: Language.french,
-        company: "Google",
-        jobType: JobType.hybrid
-      },
-
-      {
-        jobPostDate: "2020-02-01",
-        jobTitle: "Full stack developer",
-        jobDescription: "concevoir developer tester integrer deployer",
-        location:"Ottawa ON",
-        rating:4.5,
-        salary:50.000,
-        language: Language.french,
-        company: "Google",
-        jobType: JobType.hybrid
-      },
-
-      {
-        jobPostDate: "2020-02-01",
-        jobTitle: "Full stack developer",
-        jobDescription: "concevoir developer tester integrer deployer",
-        location:"Ottawa ON",
-        rating:4.5,
-        salary:50.000,
-        language: Language.french,
-        company: "Google",
-        jobType: JobType.hybrid
-      },
-    ]
-
-
-
+  constructor(private jobservice:PostJobFirebaseService) {
   }
 
+    ngOnInit(): void {
+      this.sub = this.jobservice.getJob().subscribe(
+        data => {
+          const response = []
+          for (let key in data) {
+            console.log(key)
+            const responseItem = {
+              id: key,
+              ...data[key]
+            }
+            response.push(responseItem)
+            this.jobs = response
+          }
+        }
+      )
+    }
+
+    ngOnDestroy(): void {
+      if (this.sub) {
+        this.sub.unsubscribe();
+      }
+    }
 }

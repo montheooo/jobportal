@@ -6,13 +6,14 @@ import { HomeComponent } from './components/home/home.component';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { JobDetailsGuard } from './services/job-details.guard';
+import { JobPostGuard } from './services/job-post.guard';
 
 const routes: Routes = [
 
   { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
   { path: 'job/:id', component: JobDetailsComponent, canActivate:[JobDetailsGuard] },
-  { path: 'addjob', component: ReactiveFormComponent },
+  { path: 'addjob', component: ReactiveFormComponent, canActivate:[JobPostGuard]},
   { path: 'login', component: LoginComponent }
 
 

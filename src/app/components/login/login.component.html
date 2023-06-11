@@ -5,12 +5,20 @@
       <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
 
       <div class="form-floating mb-4">
-        <input type="email" class="form-control" id="floatingInput" name="email" ngModel placeholder="name@example.com">
+        <input type="email" required class="form-control" id="floatingInput" name="email" ngModel #email="ngModel" placeholder="name@example.com">
         <label for="floatingInput">Email address</label>
       </div>
+      <div *ngIf="!email.valid && email.touched" class="text-danger fs-6 fst-italic">
+        Please enter your email
+      </div>
+
       <div class="form-floating mb-4">
-        <input type="password" class="form-control" id="floatingPassword" name="password" ngModel placeholder="1234">
+        <input type="password" required class="form-control" id="floatingPassword" name="password"  ngModel #password="ngModel" placeholder="password">
         <label for="floatingPassword">Password</label>
+      </div>
+
+      <div *ngIf="!password.valid && password.touched" class="text-danger fs-6 fst-italic">
+        Please enter your password
       </div>
 
       <div class="form-group">
@@ -24,7 +32,9 @@
       </div>
 
 
-      <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
+      <button [disabled]="!f.valid" class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
     </form>
   </main>
+  For Admin: email:admin@test.com | password:123456 <br>
+  For User:  email:user@test.com | password:123456
 </div>

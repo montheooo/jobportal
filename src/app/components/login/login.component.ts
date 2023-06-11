@@ -21,6 +21,8 @@ export class LoginComponent implements OnInit{
     password: null
   };
 
+  user:any ={};
+
   isLoggedIn = false;
   isLoginFailed = false;
   isSuccessful = false;
@@ -38,19 +40,36 @@ export class LoginComponent implements OnInit{
   }
 
   signIn(f:NgForm){
+
     console.log(f.value);
-    const { username, password } = f.value;
+
+    // Deconstruction of the form value
+    const { email, password } = f.value;
+
     this.loginService.login(f.value).subscribe(
       data => {
 
-        // Response from backend
-        const user = {
-          id: data.name,
-          roles: "ADMIN"
+        console.log(data);
+         /****** Simulate backend Response to fetch roles */
+
+        if (email === "admin@test.com") {
+
+          this.user = {
+            id: data.name,
+            roles: "ADMIN"
+          }
+
+        }else{
+
+          this.user = {
+            id: data.name,
+            roles: "USER"
+          }
         }
 
+
         this.tokenStorage.saveToken(data.name);
-        this.tokenStorage.saveUser(user);
+        this.tokenStorage.saveUser(this.user);
 
         this.isLoginFailed = false;
         this.isLoggedIn = true;
@@ -58,7 +77,7 @@ export class LoginComponent implements OnInit{
         this.roles = this.tokenStorage.getRoles();
         console.log(this.roles);
 
-        if (this.roles == 'ADMIN') {
+        if (this.roles === 'ADMIN' || this.roles === 'USER') {
           this.router.navigate(['/home']);
         }else{
           this.isLoginFailed = false;

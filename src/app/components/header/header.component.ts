@@ -12,7 +12,11 @@ export class HeaderComponent {
   @Input()
   isLoggedIn!:boolean
 
-  constructor(){}
+  constructor(private tokenStorageService:TokenStorageService, private router:Router){}
 
-
+  logout(): void {
+    this.tokenStorageService.signOut();
+    this.router.navigate(["/home"]);
+    // window.location.reload();
+  }
 }

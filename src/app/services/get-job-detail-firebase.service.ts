@@ -10,7 +10,7 @@ export class GetJobDetailFirebaseService {
   constructor(private http:HttpClient) {
   }
 
-  getJob(id:string) : Observable<any>{
+  getJob(id:string) {
 
     return this.http.get(`https://jobportal-ee422-default-rtdb.firebaseio.com/${id}.json`).pipe(
       tap(),

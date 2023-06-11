@@ -1,16 +1,29 @@
 <div class="container">
   <h3 class="text-center">Job Details</h3>
-  <div class="card text-center">
-    <div class="card-header">
-      Featured
+  <div class="card" *ngIf="JobDetails">
+    <div class=" text-center card-header">
+      {{JobDetails.company}}
     </div>
     <div class="card-body">
-      <h5 class="card-title">Special title treatment</h5>
-      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-      <a href="#" class="btn btn-primary">Go somewhere</a>
+
+     <span>Job Title:</span>
+      <input class="form-control" type="text" value={{JobDetails.jobTitle}} disabled readonly>
+     <span>Job Description:</span>
+     <textarea rows="10" class="form-control" type="text" value={{JobDetails.jobDescription}}  disabled readonly></textarea>
+     <span>Location:</span>
+     <input class="form-control" type="text" value={{JobDetails.location}} disabled readonly>
+     <span>Language:</span>
+     <input class="form-control" type="text" value={{JobDetails.language}} disabled readonly>
+     <span>Salary:</span>
+     <input class="form-control" type="text" value={{JobDetails.salary}} disabled readonly>
+     <span>Job Type:</span>
+     <input class="form-control" type="text" value={{JobDetails.jobType}} disabled readonly>
+
+      <a [routerLink]="['/home']" class="btn btn-primary">Go to jobs</a>
+
     </div>
-    <div class="card-footer text-body-secondary">
-      2 days ago
+    <div class="card-footer text-center text-body-secondary">
+      {{JobDetails.segment}} categorie
     </div>
   </div>
 </div>

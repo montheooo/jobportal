@@ -12,13 +12,7 @@ export class PostJobFirebaseService {
   constructor(private http: HttpClient) {
   }
 
-  getJob() : Observable<any>{
 
-    return this.http.get('https://jobportal-ee422-default-rtdb.firebaseio.com/job.json').pipe(
-      tap(),
-      take(1)
-    )
-  }
 
   postJob(data:any){
 

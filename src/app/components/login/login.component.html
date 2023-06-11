@@ -13,6 +13,16 @@
         <label for="floatingPassword">Password</label>
       </div>
 
+      <div class="form-group">
+        <div
+          class="alert alert-danger"
+          role="alert"
+          *ngIf="f.submitted && isLoginFailed"
+        >
+          Login failed
+        </div>
+      </div>
+
 
       <button class="w-100 btn btn-lg btn-primary" type="submit">Log in</button>
     </form>

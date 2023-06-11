@@ -1,13 +1,16 @@
 <nav class="navbar bg-light ">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="#">Home</a>
 
       <ul class="nav  justify-content-end">
-        <li class="nav-item">
+        <li *ngIf="isLoggedIn" class="nav-item">
           <a class="nav-link active" aria-current="page" [routerLink]="['/addjob']">Admin</a>
         </li>
-        <li class="nav-item">
+        <li *ngIf="!isLoggedIn" class="nav-item">
           <a class="nav-link active" aria-current="page" [routerLink]="['/login']">Login</a>
+        </li>
+        <li *ngIf="isLoggedIn" class="nav-item">
+          <a class="nav-link active" aria-current="page" >Log out</a>
         </li>
       </ul>
 

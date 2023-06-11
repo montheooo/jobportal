@@ -1,6 +1,7 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit, Input } from '@angular/core';
 import { Observable, Subscription, from } from 'rxjs';
 import { JobPost, JobType, Language } from 'src/app/Models/job-post';
+import { GetJobFirebaseService } from 'src/app/services/get-job-firebase.service';
 import { PostJobFirebaseService } from 'src/app/services/post-job-firebase.service';
 
 @Component({
@@ -14,10 +15,13 @@ export class HighlightJobComponent implements OnInit, OnDestroy {
   currentJob!: JobPost;
   sub!: Subscription;
 
+  @Input()
+  isLoggedIn!:boolean;
+
   /**
    *
    */
-  constructor(private jobservice:PostJobFirebaseService) {
+  constructor(private jobservice:GetJobFirebaseService) {
   }
 
     ngOnInit(): void {

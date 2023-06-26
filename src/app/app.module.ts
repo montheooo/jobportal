@@ -22,6 +22,7 @@ import { ReactiveFormComponent } from './components/reactive-form/reactive-form.
 import { HomeComponent } from './components/home/home.component';
 import { HttpClientModule } from '@angular/common/http';
 import { JobDetailsComponent } from './components/job-details/job-details.component';
+import { HoverJobCardDirective } from './directives/hover-job-card.directive';
 
 @NgModule({
   declarations: [
@@ -41,7 +42,8 @@ import { JobDetailsComponent } from './components/job-details/job-details.compon
     SocialMediaComponent,
     ReactiveFormComponent,
     HomeComponent,
-    JobDetailsComponent
+    JobDetailsComponent,
+    HoverJobCardDirective
   ],
   imports: [
     BrowserModule,
@@ -52,6 +54,9 @@ import { JobDetailsComponent } from './components/job-details/job-details.compon
     HttpClientModule
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports: [
+    HoverJobCardDirective
+  ]
 })
 export class AppModule { }
